@@ -210,21 +210,26 @@
         אני מזמינה אותך לשיחה אישית ללא התחייבות.<br>
         המסע שלך מתחיל בצעד אחד אמיתי.
     </p>
-    <form
-  action="https://formspree.io/f/xdkwllzk"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+    <form class="contact-form">
+       <form action="https://formspree.io/f/xdkwllzk" method="POST">
+        <label>
+            שם מלא
+            <input type="text" name="fullName" required>
+        </label>
+        <label>
+            טלפון
+            <input type="tel" name="phone" required>
+        </label>
+        <label>
+            מייל
+            <input type="email" name="email" required>
+        </label>
+        <label>
+            מילה אחת על המקום שבו את נמצאת
+            <input type="text" name="oneWord" required>
+        </label>
+        <button type="submit">שלחי לי את הפרטים שלך</button>
+            </form>
         </section>
 
         <footer>
@@ -238,4 +243,5 @@
 </body>
 
 </html>
+
 
