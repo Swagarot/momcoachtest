@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>צעדים קטנים לשינויים גדולים | אפרת דוד ששון</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Assistant', sans-serif;
+      direction: rtl;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container { max-width:1200px; margin:0 auto; padding:20px; }
+
+    header, footer {
+      text-align:center;
+      background-color:#627b65;
+      padding:20px;
+      border-radius:8px;
+      margin-top:20px;
+    }
+
+    header h1, h2, h3 { font-family:'Rubik', sans-serif; }
+
+    header h1 { font-size:2.5rem; color:#fff; margin-bottom:10px; }
+    header p { color:#fff; font-size:1.2rem; }
+
+    .header-image { width:30%; max-width:600px; height:auto; margin:20px auto; display:block; border-radius:8px; }
+
+    section { padding:40px 20px; text-align:center; }
+
+    h2 { font-size:2rem; color:#627b65; margin-bottom:20px; }
+    h3 { font-size:1.8rem; color:#fff; margin-bottom:20px; }
+
+    p, ul li { font-size:1.3rem; margin-bottom:15px; }
+
+    pw, liw { color:#fff; display:block; }
+
+    .box { background:#e6e1dd; padding:20px; border-radius:8px; margin-top:20px; }
+    .box2 { background:#627b65; padding:20px; border-radius:8px; margin-top:20px; color:white; }
+
+    ul { list-style:none; padding:0; }
+
+    /* ---------- FORM STYLING (fixed + consistent) ---------- */
+    .contact-form {
+      max-width:600px;
+      margin:20px auto 0;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
+    }
+
+    /* label is block so span (text) sits above input */
+    .contact-form label {
+      display:block;
+      text-align:right; /* aligns label text to the right for RTL */
+      font-size:1.15rem;
+      color:inherit;
+    }
+
+    .contact-form label span {
+      display:block;
+      margin-bottom:8px;
+      font-weight:500;
+      color:inherit;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width:100%;
+      padding:12px;
+      font-size:1rem;
+      border-radius:6px;
+      border:1px solid #ccc;
+      background:#fff;
+      color:#333;
+      box-shadow:none;
+      transition:box-shadow 0.15s, border-color 0.15s;
+    }
+
+    /* focus style */
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #2e7d32;
+      box-shadow: 0 0 0 4px rgba(46,125,50,0.08);
+    }
+
+    /* button full width to align with inputs */
+    .contact-form button {
+      padding:14px;
+      font-size:1.15rem;
+      border-radius:6px;
+      background-color:#4f4737;
+      color:white;
+      border:none;
+      cursor:pointer;
+      width:100%;
+      transition:background-color 0.25s;
+    }
+
+    .contact-form button:hover { background-color:#d81b60; }
+
+    /* special styles when form sits inside .box2 (dark background) */
+    .box2 .contact-form label { color: #fff; }
+    .box2 .contact-form label span { color: #fff; }
+    .box2 .contact-form input,
+    .box2 .contact-form textarea {
+      background:#fff;
+      color:#222;
+      border:1px solid rgba(0,0,0,0.12);
+    }
+
+    /* smaller screens */
+    @media (max-width:768px) {
+      header h1 { font-size:2rem; }
+      h2 { font-size:1.5rem; }
+      p, ul li { font-size:1rem; }
+      .header-image { width:80%; }
+      .contact-form { padding:0 10px; }
+    }
+
+    /* --- TOP NAV --- */
+.top-nav {
+  background-color: #627b65;
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d81b60;
+}
+
+/* --- MOBILE MENU --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* collapse on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #627b65;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    display: none;
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+  </style>
+
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+   <nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">אפרת דוד ששון</a>
+    <ul class="nav-links">
+      <li><a href="index.html">דף הבית</a></li>
+      <li><a href="index2.html">המדריך החינמי</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="תפריט">&#9776;</button>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
+ 
+ 
+    <div class="container">
+    <header>
+      <h1>Unfold You – צעדים קטנים לשינויים גדולים</h1>
+      <p>לשחרור דפוסים ישנים ולחבק את העוצמה האמיתית שבך<br>אפרת דוד ששון | מאמנת רגשית לנשים בצמתי חיים</p>
+    </header>
+
+    <div class="box2">
+      <section class="hero">
+        <h3>יש בתוכך קול פנימי שרוצה יותר?</h3>
+        <p>שמחה להעניק לך את המדריך החינמי שיעזור לך לצאת מתקיעות ולהעז ללכת בצעדים קטנים שמובילים לשינוי גדול.<br>
+        מתאים במיוחד לאמהות, נשים עובדות, קרייריסטיות ועצמאיות.</p>
+
+        <!-- HERO FORM -->
+        <form class="contact-form" action="https://formspree.io/f/xdkwllzk" method="POST" aria-label="Form - hero">
+          <label>
+            <span>שם מלא</span>
+            <input type="text" name="fullName" placeholder="שם מלא" required>
+          </label>
+
+          <label>
+            <span>מייל</span>
+            <input type="email" name="email" placeholder="example@mail.com" required>
+          </label>
+
+          <button type="submit">אני רוצה את המדריך שלי</button>
+        </form>
+      </section>
+    </div>
+
+    <div class="box">
+      <section class="what-inside">
+        <h2>מה תמצאי בפנים</h2>
+        <ul>
+          <li> 5 טכניקות אימוניות פשוטות שמביאות תוצאות</li>
+          <li> כלי רגשי לשיח פנימי מקרב במקום מבקר</li>
+          <li> דרך להתמודד עם הפחד מ״מה יגידו״ בלי להיאבק בעצמך</li>
+          <li> תרגיל כתיבה קצר שיחבר אותך ללב שלך</li>
+          <li> שיטת שלושת הצעדים לשינוי - לזהות, לבחור, לפעול</li>
+        </ul>
+        <p><strong>את לא צריכה להפוך את העולם - רק להסכים להתחיל לזוז.</strong></p>
+      </section>
+    </div>
+
+    <div class="box2">
+      <section class="for-who">
+        <h3>למי זה מתאים?</h3>
+        <ul>
+          <li> לנשים בצומת – בקריירה, בזוגיות, או בחיים</li>
+          <li> למי שכבר ניסתה שינוי, אבל משהו חזר אחורה</li>
+          <li>למי שחייה נראים מושלמים מבחוץ, אבל חסרה תשוקה</li>
+          <li> למי שמוכנה לבחור בעצמה – באמת</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="box">
+      <section class="about">
+        <h2>עליי</h2>
+        <p>נעים מאוד, אני אפרת דוד ששון מאמנת רגשית ומנטורית לנשים בתהליכי פריצה, צמיחה וחיבור לעצמן.<br>
+        אני עובדת בשיטת "המגדלור" - שיטה שמחברת עומק רגשי ותנועה קדימה, בקצב שלך ובלי מאבק.</p>
+        <img src="efrats.png" alt="אפרת דוד ששון" class="header-image">
+      </section>
+    </div>
+
+    <div class="box2">
+      <section class="testimonials">
+        <h3>כשנשים בוחרות לזוז — דברים טובים קורים </h3>
+        <p>שירי ,39-  ״אפרת עזרה לי להפסיק להתנצל על החלומות שלי. היום אני קמה בבוקר עם בהירות וקלילות.״ </p>
+        <p>רונית ,44-  ״תהליך איתה הרגיש כמו חזרה הביתה. היא לא ניסתה לשנות אותי, רק לעזור לי לזכור מי אני.״</p>
+        <p> מיכל ,36-  ״המדריך הזה היה הזרע לשינוי שלי. זה התחיל בצעד קטן — והיום אני במקום אחר לגמרי.״</p>
+      </section>
+    </div>
+
+
+
+
+
+    <div class="box">
+      <section class="cta">
+        <h2>רוצה להתחיל לזוז?</h2>
+        <p>מלאי כאן את הפרטים שלך וקבלי את המדריך החינמי "צעדים קטנים לשינויים גדולים"</p>
+
+        <!-- CTA FORM (same styling) -->
+        <form class="contact-form" action="https://formspree.io/f/xdkwllzk" method="POST" aria-label="Form - cta">
+          <label>
+            <span>שם מלא</span>
+            <input type="text" name="fullName" placeholder="שם מלא" required>
+          </label>
+
+          <label>
+            <span>מייל</span>
+            <input type="email" name="email" placeholder="example@mail.com" required>
+          </label>
+
+          <button type="submit">אני רוצה את המדריך שלי</button>
+        </form>
+      </section>
+    </div>
+
+    <footer>
+      <pw>
+        הפרטים שלך שמורים איתי ולא יועברו לשום גורם.<br>
+        לאחר ההרשמה, המדריך יישלח ישירות למייל שלך.<br>
+        שאלה? כתבי ל־<a href="mailto:efrathon@gmail.com" style="color:white;">efrathon@gmail.com</a>
+      </pw>
+    </footer>
+  </div>
+</body>
+</html>
