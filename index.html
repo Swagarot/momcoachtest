@@ -164,6 +164,89 @@ font-family: 'Rubik', sans-serif;
 
 
 }
+/* --- TOP NAV --- */
+.top-nav {
+  background-color: #627b65;
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  direction: rtl;
+}
+
+.logo {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #d81b60;
+}
+
+/* --- MOBILE MENU --- */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* collapse on mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: #627b65;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    display: none;
+    padding: 10px 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+
 
         @media (max-width: 768px) {
             header h1 {
@@ -182,6 +265,24 @@ font-family: 'Rubik', sans-serif;
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav class="top-nav">
+  <div class="nav-container">
+    <a href="index.html" class="logo">אפרת דוד ששון</a>
+    <ul class="nav-links">
+      <li><a href="index.html">דף הבית</a></li>
+      <li><a href="index2.html">המדריך החינמי</a></li>
+    </ul>
+    <button class="nav-toggle" aria-label="תפריט">&#9776;</button>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('show');
+  });
+</script>
     <div class="container">
         <header>
             <h1>לשבור את תקרת הזכוכית הפנימית שלך</h1>
